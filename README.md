@@ -15,10 +15,7 @@
 ## Conceptbeschrijving
 De App "EventFinder" geeft informatie weer over aankomende evenemenenten. Hierbij kan je evenemenenten ondekken door een randomizer. Om een nieuw random evenemenent weer te geven moet je de device schudden. Daarnaast kun je ontdekken welke evenemenenten er binnenkort plaats vinden. Uw favorieten events kunt u lokaal opslaan.
 
-
-## Keuzes qua technische vereisten
-Hieronder een schets van de schermontwerpen:
-<insert img>
+De visie is dat tijdens evenementen en uitgaan heb je altijd je mobiel bij je, gebruik dit app als je entreeticket en informatie voorziening. Sinds je altijd in beweging bent met mobiel op zak kunnen we gebruik maken van dit aspect. Uiteindelijk zouden we kunnen maken dat je punten kan verzamelen voor kortingen hoe meer je beweegt (mobiel schudt) op de locatie van de evenement. Dit aspect is uitgebreid naar de willekeurige event zoeken en het logo. 
 
 ### Componenten
 
