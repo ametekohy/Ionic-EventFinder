@@ -1,4 +1,5 @@
 # Ionic EventFinder
+<img src="https://github.com/ametekohy/Ionic-EventFinder/blob/master/event-finder/resources/icon.png" width="100">
 
 ## Table of Contents
 - [Conceptbeschrijving](#Conceptbeschrijving)
