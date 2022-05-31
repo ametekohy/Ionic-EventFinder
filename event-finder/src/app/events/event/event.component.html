@@ -1,0 +1,117 @@
+<ion-card class="welcome-card" *ngIf="event">
+    <ion-img src="{{event.images[0].url}}"></ion-img>
+    <ion-card-header appShake>
+        <ion-card-subtitle><a href='{{event.url}}'>Visit TicketMaster for tickets for  {{event.name}}</a>
+            <ion-icon name="open"></ion-icon>
+        </ion-card-subtitle>
+        <ion-card-title>{{event.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-grid>
+            <ion-row *ngIf="event.dates.start">
+                <ion-col size="1">
+                    <ion-icon name="calendar"></ion-icon>
+                </ion-col>
+                <ion-col size="5">
+                    Date:
+                </ion-col>
+                <ion-col size="6">
+                    {{event.dates.start.localDate}}
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="1">
+                    <ion-icon name="time"></ion-icon>
+                </ion-col>
+                <ion-col size="5">
+                    Start Time:
+                </ion-col>
+                <ion-col size="6">
+                    {{event.dates.start.localTime}}
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="event._embedded.attractions">
+                <ion-col size="5" offset="1">
+                    Type:
+                </ion-col>
+                <ion-col size="6">
+                    {{event._embedded.attractions[0].type}}
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="event._embedded.venues">
+                <ion-col size="1">
+                    <ion-icon name="business"></ion-icon>
+                </ion-col>
+                <ion-col size="5">
+                    Venue:
+                </ion-col>
+                <ion-col size="6">
+                    {{event._embedded.venues[0].name}}
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="event._embedded.venues[0].address">
+                <ion-col size="5" offset="1">
+                    Address:
+                </ion-col>
+                <ion-col size="6">
+                    {{event._embedded.venues[0].address.line1}}
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="5" offset="1">
+                    City:
+                </ion-col>
+                <ion-col size="6">
+                    {{event._embedded.venues[0].city.name}}
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="event._embedded.venues[0].postalCode">
+                <ion-col size="5" offset="1">
+                    Postcode:
+                </ion-col>
+                <ion-col size="6">
+                    {{event._embedded.venues[0].postalCode}}
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="event.priceRanges">
+                <ion-col size="1">
+                    <ion-icon name="cash"></ion-icon>
+                </ion-col>
+                <ion-col size="5">
+                    Price:
+                </ion-col>
+                <ion-col size="6">
+                    €{{event.priceRanges[0].max}}
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="event.promoter">
+                <ion-col size="1">
+                    <ion-icon name="contact"></ion-icon>
+                </ion-col>
+                <ion-col size="5">
+                    Promoter:
+                </ion-col>
+                <ion-col size="6">
+                    {{event.promoter.name}}
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card-content>
+
+    <ion-fab vertical="center" horizontal="end" slot="fixed">
+        <ion-fab-button *ngIf="favorite == false">
+            <ion-icon name="heart-empty" (click)="toggleFavorite(event)"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button *ngIf="favorite == true">
+            <ion-icon name="heart" (click)="toggleFavorite(event)"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-card>

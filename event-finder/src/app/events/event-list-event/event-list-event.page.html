@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title >{{name}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full" *ngIf="events">
+    Results <ion-badge color="primary">{{events.length}}</ion-badge>
+    <ion-item button *ngFor="let item of events;" [href]="'event/' + item.id" detail="true">
+      <ion-avatar slot="start">
+        <img src="{{item.images[0].url}}" alt="{{item.images[0].fallback}}">
+      </ion-avatar>
+      {{item.name}}
+    </ion-item>
+  </ion-list>
+</ion-content>

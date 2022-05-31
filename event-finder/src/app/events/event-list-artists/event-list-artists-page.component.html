@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Find nearby
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="location">
+    <ion-range min="5" max="100" step="5" snaps="true" pin="true" value="25" [(ngModel)]="radius"
+               (ionChange)="getEventList()">
+        <ion-label slot="start">Radius(km):</ion-label>
+        <ion-label slot="end">{{radius}}</ion-label>
+    </ion-range>
+
+    <ion-list lines="full" *ngIf="uniqueArtists">
+        Results
+        <ion-badge color="primary">{{uniqueArtists.length}}</ion-badge>
+        <ion-item button *ngFor="let item of uniqueArtists;" [href]="'tabs/event-list-artists-event/' + item.id"
+                  detail="true">
+            <ion-avatar slot="start">
+                <img src="{{item.images[0].url}}" alt="{{item.images[0].fallback}}">
+            </ion-avatar>
+            {{item.name}}
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-content *ngIf="location == false">
+    <ion-card>
+        <ion-card-content>
+            <ion-button expand="full" color="danger">
+                <ion-icon name="alert"></ion-icon>
+                <ion-label>
+                    No permission for use of location found
+                </ion-label>
+            </ion-button>
+            <ion-text>
+                <br/>
+                <h2><b>Find nearby events by accepting our use for your device location!</b></h2>
+                <h3>Add your favorite events by pressing on the
+                    <ion-icon name="heart"></ion-icon>
+                    -icon in the <b>featured page</b> or the events in the <b>find nearby page</b>!
+                </h3>
+            </ion-text>
+            <br/>
+            <ion-button size="small" (click)="requestLocationPermission()" href="tabs/artists-events">
+                <ion-icon name="star"></ion-icon>
+                <ion-label>
+                    REQUEST
+                </ion-label>
+            </ion-button>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "eventFinder",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

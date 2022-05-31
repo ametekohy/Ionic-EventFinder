@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Settings</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-text>
+                    <ion-label>
+                        <h2><b>Theme</b></h2>
+                    </ion-label>
+                    <ion-button expand="block" color="medium" (click)="changeTheme('autumn')">Autumn</ion-button>
+                    <ion-button expand="block" color="medium" (click)="changeTheme('night')">Dark</ion-button>
+                    <ion-button expand="block" color="medium" (click)="changeTheme('neon')">Neon</ion-button>
+                    <ion-button expand="block" color="medium" (click)="changeTheme('')">Default</ion-button>
+                </ion-text>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-label>
+                    <h3><b>Color scheme</b></h3>
+                </ion-label>
+                <ion-button color="primary">Primary</ion-button>
+                <ion-button color="secondary">Secondary</ion-button>
+                <ion-button color="tertiary">Tertiary</ion-button>
+                <ion-button color="medium">Medium</ion-button>
+                <ion-button color="dark">Dark</ion-button>
+            </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="isMobile">
+            <ion-col>
+                <ion-label>
+                    <h3><b>Permissions status</b></h3>
+                </ion-label>
+                <ion-item>
+                    <ion-label>Location:</ion-label>
+                    <ion-toggle disabled [(ngModel)]="locationPermission"></ion-toggle>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
